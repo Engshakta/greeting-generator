@@ -5,7 +5,7 @@ A full-stack training project featuring a "Hello World" API built with Node.js a
 This application consists of two main components:
 - **Backend**: A Node.js server using Express to serve a simple "Hello World" message via a GET endpoint at `http://localhost:5000`.
 - **Frontend**: A React application built with Vite, fetching and displaying the backend's response at `http://localhost:5173`.
-Created as part of a full-stack development training initiative with Sometech, this project showcases the integration of modern JavaScript technologies.
+Created as part of a full-stack development training initiative with The AI union Agency, this project showcases the integration of modern JavaScript technologies.
 
 ## Tech Stack
 - **Backend**: Node.js, Express, CORS
