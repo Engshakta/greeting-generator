@@ -24,29 +24,19 @@ Created as part of a full-stack development training initiative with Sometech, t
 git clone https://github.com/Engshakta/hw-endpoint.git
 cd hw-endpoint
 Backend Setup
-bash
 
-Collapse
-
-Wrap
-
-Copy
 cd backend
 npm install
 node server.js
+
 Frontend Setup
-In a new terminal:
 
-bash
-
-Collapse
-
-Wrap
-
-Copy
 cd frontend
 npm install
 npm run dev
 Verify
 Backend: Visit http://localhost:5000 (shows "Hello World").
 Frontend: Visit http://localhost:5173 (displays "Message from API: Hello World").
+
+Author
+Abdishakur (GitHub: Engshakta)
