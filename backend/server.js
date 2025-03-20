@@ -1,13 +1,14 @@
-const express = require('express'); // Import Express
-const app = express(); // Create an Express app
+const express = require('express');
+const cors = require('cors');
+const app = express();
 
-// Define a GET endpoint at the root URL ("/")
+app.use(cors()); // Allow requests from localhost:5173
+
 app.get('/', (req, res) => {
-    res.send('Hello World'); // Send "Hello World" as the response
+  res.send('Hello World');
 });
 
-// Start the server on port 3000
-const PORT = 3000;
+const PORT = 5000; // Use 5000 for now
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
