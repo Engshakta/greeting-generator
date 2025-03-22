@@ -26,7 +26,7 @@ Created as part of a full-stack development training initiative with The AI Unio
 
 ## Screenshot
 
-![Greeting Generator Screenshot](./assets/image.png)
+![Greeting Generator Screenshot](./assets/greeting-generator.png)
 
 ## Author
 
