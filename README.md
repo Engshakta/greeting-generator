@@ -63,3 +63,21 @@ GitHub: [Engshakta](https://github.com/Engshakta)
 ```bash
 git clone https://github.com/Engshakta/greeting-generator.git
 cd greeting-generator
+
+## Screenshot
+
+![Greeting Generator Screenshot](./assets/greeting-generator.PNG)
+
+## Live Demo
+
+Check out the deployed app here: [https://greeting-generator.vercel.app](https://greeting-generator.vercel.app)
+
+## Author
+
+**Abdishakur**  
+GitHub: [Engshakta](https://github.com/Engshakta)  
+![Abdishakur's Avatar](https://github.com/Engshakta.png?size=100)
+
+## Deployment Notes
+
+Attempting to deploy on Vercel with a simplified configuration.
