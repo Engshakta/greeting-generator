@@ -6,14 +6,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Add a root endpoint
 app.get('/', (req, res) => {
   res.json({ message: "Greeting API is running" });
 });
 
 const fallbackGreetings = ["Hello, {name}!", "Greetings, {name}!", "Hi there, {name}!"];
-
-// Support both /greet (for Vercel) and /api/greet (for local testing)
 app.get(['/greet', '/api/greet'], (req, res) => {
   const name = req.query.name || 'Guest';
   const randomGreeting = fallbackGreetings[Math.floor(Math.random() * fallbackGreetings.length)];
@@ -21,7 +18,8 @@ app.get(['/greet', '/api/greet'], (req, res) => {
   res.json({ greeting });
 });
 
-module.exports.handler = serverless(app);
+// Use default export for Vercel
+module.exports = serverless(app);
 
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 5000;
