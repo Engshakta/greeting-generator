@@ -1,19 +1,31 @@
 const express = require('express');
 const cors = require('cors');
-const serverless = require('serverless-http'); // Add this dependency
+const serverless = require('serverless-http');
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
+// Add a root endpoint
+app.get('/', (req, res) => {
+  res.json({ message: "Greeting API is running" });
+});
+
 const fallbackGreetings = ["Hello, {name}!", "Greetings, {name}!", "Hi there, {name}!"];
-app.get('/api/greet', (req, res) => {
+
+// Remove one /api layer since Vercel adds it automatically
+app.get('/greet', (req, res) => {
   const name = req.query.name || 'Guest';
   const randomGreeting = fallbackGreetings[Math.floor(Math.random() * fallbackGreetings.length)];
   const greeting = randomGreeting.replace('{name}', name);
   res.json({ greeting });
 });
 
-module.exports.handler = serverless(app); // Export for Vercel
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Vercel-specific export
+module.exports.handler = serverless(app);
+
+// Local development check
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => console.log(`Local server running on port ${PORT}`));
+}
