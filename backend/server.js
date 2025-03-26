@@ -13,18 +13,16 @@ app.get('/', (req, res) => {
 
 const fallbackGreetings = ["Hello, {name}!", "Greetings, {name}!", "Hi there, {name}!"];
 
-// Remove one /api layer since Vercel adds it automatically
-app.get('/greet', (req, res) => {
+// Support both /greet (for Vercel) and /api/greet (for local testing)
+app.get(['/greet', '/api/greet'], (req, res) => {
   const name = req.query.name || 'Guest';
   const randomGreeting = fallbackGreetings[Math.floor(Math.random() * fallbackGreetings.length)];
   const greeting = randomGreeting.replace('{name}', name);
   res.json({ greeting });
 });
 
-// Vercel-specific export
 module.exports.handler = serverless(app);
 
-// Local development check
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => console.log(`Local server running on port ${PORT}`));
